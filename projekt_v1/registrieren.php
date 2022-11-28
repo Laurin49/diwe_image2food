@@ -15,23 +15,26 @@ if (0 > version_compare(PHP_VERSION, '7')) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div id="nav">
-    <?php
-    require("nav.php");
-    ?>
-</div>
-<div id="content">
+    <div id="nav">
+        <?php
+            require("nav.php");
+            require("plausi.inc.php");
+        ?>
+    </div>
+    <div id="content">
 
-    <h1>Registrierung</h1>
-    <?php
-    /**
-     * Image2Food
-     * Das soziale Netzwerk für Kochideen
-     * Die Einstiegsseite mit der Hauptklasse
-     */
-    class Registrierung {
-    }
-    ?>
-</div>
+        <h1>Registrierung</h1>
+        <?php
+            // Registrierung Formular
+            require("registrieren.inc.php");
+            // Registrierung Klasse
+            require("registrieren.class.php");
+
+            $regobj = new Registrierung();
+            if (sizeof($_POST) > 0 ) {
+                $regobj->registrieren();
+            }
+        ?>
+    </div>
 </body>
 </html>

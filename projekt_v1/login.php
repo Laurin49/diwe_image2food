@@ -17,20 +17,15 @@ if (0 > version_compare(PHP_VERSION, '7')) {
 <body>
 <div id="nav">
     <?php
-    require("nav.php");
+        require("nav.php");
+        require ("plausi.inc.php");
     ?>
 </div>
 <div id="content">
-
     <h1>Login</h1>
     <?php
-    /**
-     * Image2Food
-     * Das soziale Netzwerk für Kochideen
-     * Die Einstiegsseite mit der Hauptklasse
-     */
-    class Login {
-    }
+        require('login.inc.php');   // Formular Login
+        require('login.class.php'); // Klasse Login
     ?>
 </div>
 </body>
