@@ -17,20 +17,25 @@ if (0 > version_compare(PHP_VERSION, '7')) {
 <body>
 <div id="nav">
     <?php
-        require("nav.php");
-        require ("plausi.inc.php");
+    require("nav.php");
     ?>
 </div>
 <div id="content">
-    <h1>Login</h1>
-    <?php
-        require('login.inc.php');   // Formular Login
-        require('login.class.php'); // Klasse Login
 
-        $loginobj = new Login();
-        if (sizeof($_POST) > 0) {
-            $loginobj->_login();
+    <h1>Registrierung - Fehler</h1>
+    <?php
+        // Registrierung Formular
+        require("registrieren.inc.php");
+
+        class RegFehler {
+            public function fehler() {
+                $msg = "<h4>Die Registrierung hat leider nicht funktioniert.</h4>";
+                $msg .= "<h5>Wählen Sie eine andere Userid und versuchen Sie es erneut.</h5>";
+                echo $msg;
+            }
         }
+        $regobj = new RegFehler();
+        $regobj->fehler();
     ?>
 </div>
 </body>
