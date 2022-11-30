@@ -17,15 +17,15 @@ if (0 > version_compare(PHP_VERSION, '7')) {
 <body>
 <div id="nav">
     <?php
-        require("nav.php");
-        require ("plausi.inc.php");
+        @include("nav.php");
+        @include("plausi.inc.php");
     ?>
 </div>
 <div id="content">
     <h1>Login</h1>
     <?php
-        require('login.inc.php');   // Formular Login
-        require('login.class.php'); // Klasse Login
+        @include('login.inc.php');   // Formular Login
+        @include('login.class.php'); // Klasse Login
 
         $loginobj = new Login();
         if (sizeof($_POST) > 0) {

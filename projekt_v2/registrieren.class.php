@@ -34,7 +34,7 @@ class Registrierung {
 
     }
     private function eintragen_db() {
-        require('db.inc.php');
+        @include('db.inc.php');
         $sql = "INSERT INTO mitglieder (name, vorname, email, zusatzinfos, rolle, userid, pw)";
         $sql .= " VALUES (:name, :vorname, :email, :zusatzinfos, :rolle, :userid, :pw)";
         // echo "SQL: " . $sql . "<br />";

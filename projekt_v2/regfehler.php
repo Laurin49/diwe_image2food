@@ -17,7 +17,7 @@ if (0 > version_compare(PHP_VERSION, '7')) {
 <body>
 <div id="nav">
     <?php
-    require("nav.php");
+        @include("nav.php");
     ?>
 </div>
 <div id="content">
@@ -25,7 +25,7 @@ if (0 > version_compare(PHP_VERSION, '7')) {
     <h1>Registrierung - Fehler</h1>
     <?php
         // Registrierung Formular
-        require("registrieren.inc.php");
+        @include("registrieren.inc.php");
 
         class RegFehler {
             public function fehler() {
