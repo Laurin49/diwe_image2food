@@ -8,6 +8,7 @@ setcookie("Image2Food", time(), time() + (60 * 60 * 24 * 120));
 if (0 > version_compare(PHP_VERSION, '7')) {
     die('<h1>Für diese Anwendung ' . 'ist mindestens PHP 7 notwendig</h1>');
 }
+class MeineAusnahme extends Exception {}
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -19,10 +20,23 @@ if (0 > version_compare(PHP_VERSION, '7')) {
 <body>
     <div id="nav">
         <?php
-            if (isset($_SESSION["login"]) && ($_SESSION["login"] == "true")) {
-                require ("navmitglieder.php");
-            } else {
-                require ("nav.php");
+            try {
+                if (isset($_SESSION["login"]) && ($_SESSION["login"] == "true")) {
+                    if(!@include ("navmitglieder.php")){
+                        throw new MeineAusnahme();
+                    }
+                } else {
+                    if(!@include ("nav.php")){
+                        throw new MeineAusnahme();
+                    }
+                }
+            }catch(MeineAusnahme $e) {
+                die("<h1>Image2Food – Sag mir, was ich daraus kochen kann</h1>" .
+                    "<h2>Das soziale, multimediale Netzwerk	für Kochideen</h2>" .
+                    "Leider gibt es ein Problem mit der Webseite. " .
+                    "Wir arbeiten daran mit Hochdruck. " .
+                    "Besuchen Sie uns in Kürze wieder neu.");
+
             }
         ?>
     </div>

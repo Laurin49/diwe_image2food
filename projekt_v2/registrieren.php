@@ -17,8 +17,8 @@ if (0 > version_compare(PHP_VERSION, '7')) {
 <body>
     <div id="nav">
         <?php
-            require("nav.php");
-            require("plausi.inc.php");
+            @include("nav.php");
+            @include("plausi.inc.php");
         ?>
     </div>
     <div id="content">
@@ -26,9 +26,9 @@ if (0 > version_compare(PHP_VERSION, '7')) {
         <h1>Registrierung</h1>
         <?php
             // Registrierung Formular
-            require("registrieren.inc.php");
+            @include("registrieren.inc.php");
             // Registrierung Klasse
-            require("registrieren.class.php");
+            @include("registrieren.class.php");
 
             $regobj = new Registrierung();
             if (sizeof($_POST) > 0 ) {
