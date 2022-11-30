@@ -1,8 +1,8 @@
 <?php
-/**
- * Festlegung der Untergrenze für die PHP-Version
- * @version: 1.0
- */
+// Start der Session
+session_start();
+
+// Festlegung der Untergrenze für die PHP-Version
 if (0 > version_compare(PHP_VERSION, '7')) {
     die('<h1>Für diese Anwendung ' . 'ist mindestens PHP 7 notwendig</h1>');
 }
